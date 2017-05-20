@@ -14,16 +14,25 @@
 
 Data=`date "+%Y%m%d"`
 Data2=`date "+%Y%m%d-%H:%M"`
-Usuario=nome_do_usuario
+Usuario=postgres
 Host=localhost
 Banco=banco
-Bancorest=banco2
+Bancorest=bancoteste
+Password=123456
+
+
+su - postgres
 
 echo "Inicio do Backup do banco de dados " $Data2 >>/var/log/backup.log
 
 pg_dump -U $Usuario -h $Host -d -O -o -b -F c $Banco /backup/postgresql$Data.backup
 
+
 echo "Teste de restauracao do Backup do banco de dados " $Data >>/var/log/backup.log
+psql -c dropdb $Brancorest
+
+psql -c createdb $Brancorest
+
 pg_restore -U $Usuario -h $Host -d  $Bancorest /backup/postgresql$Data.backup
 
 
