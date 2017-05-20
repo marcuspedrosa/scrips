@@ -7,6 +7,7 @@
 #	Autor: Marcus Pedrosa
 #	Data: 19-05-2017
 #	Feito para utilizar no localhost com opção trust no banco de dados
+#       Versao: 0.1
 ##################################################################
 
 # Setando a data atual
